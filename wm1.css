@@ -1,0 +1,57 @@
+body{
+  margin: 20px;
+  color: rgb(0, 50, 150)
+}
+
+#main {
+    display: flex;
+    gap: 30px;
+}
+
+#right-side {
+    width: 200px;
+}
+
+#seats {
+    flex: 1;
+}
+
+#categories{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+  border-style:solid;
+  border-radius: 50px;
+}
+
+#categories p{
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+#stage{
+margin: 30px; 
+padding: 20px;
+text-align: center; 
+background-color: gray; 
+width: 80%; 
+font-size: 24px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: rgb(200, 200, 200);
+}
+
+#details, #cart{
+  margin: 10px;
+  padding: 5px;
+  border-style: solid;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
