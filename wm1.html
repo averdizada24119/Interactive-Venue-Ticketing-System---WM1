@@ -29,28 +29,32 @@
         <h2>Seats</h2>
 
         <div id="controls">
-          <button>Zoom In</button>
-          <button>Zoom Out</button>
+          <button id="zoom-in">Zoom In</button>
+          <button id="zoom-out">Zoom Out</button>
 
-          <button>Move Up</button>
-          <button>Move Down</button>
-          <button>Move Left</button>
-          <button>Move Right</button>
+          <button id="move-up">Move Up</button>
+          <button id="move-down">Move Down</button>
+          <button id="move-left">Move Left</button>
+          <button id="move-right">Move Right</button>
 
-          <button>Reset View</button>
+          <button id="reset-view">Reset View</button>
         </div>
 
         <hr>
+        
 
-        <p id='stage'>Stage</p>
+        <div id="viewport">
+          <div id="map">
+            <p id='stage'>Stage</p>
 
-        <div class='seats'>
-        <div id='premium-seat'></div>
-        <div id='vip-seat'></div>
-        <div id='standard-seat'></div>
-        <div id='balcony-seat'></div>
+            <div class='seats'>
+            <div id='premium-seat'></div>
+            <div id='vip-seat'></div>
+            <div id='standard-seat'></div>
+            <div id='balcony-seat'></div>
+            </div>
+          </div>
         </div>
-
       </div>
 
 
@@ -76,6 +80,7 @@
       </div>
     </div>
     
-  <script src="wm1.js"></script>  
+  <script src="wm1.js"></script>
+  <script src="controls.js"></script>  
   </body>
 </html>
