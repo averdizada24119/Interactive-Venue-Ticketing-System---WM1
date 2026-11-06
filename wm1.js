@@ -99,7 +99,7 @@ function renderCart(){
     const block = document.createElement("div");
     block.classList.add("cart-item");
     block.innerHTML = `
-      ${item.category} (${item.price}$)
+      ${item.category} (${item.price}$) <br>
       [${item.row} - ${item.column}]
     `;
 
