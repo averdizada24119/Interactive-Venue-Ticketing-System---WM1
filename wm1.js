@@ -11,19 +11,6 @@ function appendPrice(seat, money){
   })
 }
 
-function createSeats(container, letter, rows, seatsPerRow) {
-  for (let row = 1; row <= rows; row++) {
-    for (let seat = 1; seat <= seatsPerRow; seat++) {
-      const seatButton = document.createElement("button");
-      seatButton.classList.add("seat");
-      seatButton.textContent = letter;
-      container.appendChild(seatButton);
-    }
-
-    container.appendChild(document.createElement("br"));
-  }
-}
-
 function appendRow(seat, currentRow){
   seat.addEventListener('click', function(e){
     row.textContent = `Row: ${currentRow}`
@@ -36,17 +23,37 @@ function appendSeat(seat, currentColumn){
   })
 }
 
+function createSeats(container, letter, rows, seatsPerRow) {
+  for (let row = 1; row <= rows; row++) {
+    for (let seat = 1; seat <= seatsPerRow; seat++) {
+      const seatButton = document.createElement("button");
+      seatButton.classList.add("seat");
+      seatButton.textContent = letter;
+
+      appendRow(seatButton, row); // new
+      appendSeat(seatButton, seat); //new
+
+
+      container.appendChild(seatButton);
+    }
+
+    container.appendChild(document.createElement("br"));
+  }
+}
+
 //SEAT DETAILS
 const category = document.getElementById("category")
 const price = document.getElementById("price");
 const row = document.getElementById("row");
-const seat = document.getElementById("column")
+const column = document.getElementById("column")
 
 //CREATION OF SEAT MAP
 const seatP = document.getElementById("premium-seat");
 appendCategory(seatP, 'Premium')
 appendPrice(seatP, 120);
+//appendRow(seatP, currentRow);
 createSeats(seatP, 'P', 1, 10);
+
 
 const seatV = document.getElementById("vip-seat");
 appendCategory(seatV, 'VIP');
