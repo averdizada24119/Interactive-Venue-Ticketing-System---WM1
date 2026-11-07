@@ -1,13 +1,13 @@
 //FUNCTIONS
 function appendCategory(seat, cat){
-  seat.dataset.category = cat;          // new
+  seat.dataset.category = cat;
   seat.addEventListener('click', function(e){
     category.textContent = `Category: ${cat}`;
   })
 }
 
 function appendPrice(seat, money){
-  seat.dataset.price = money;           // new
+  seat.dataset.price = money;
   seat.addEventListener('click', function(e){
     price.textContent = `Price: $${money}`;
   })
@@ -40,22 +40,26 @@ function appendSelect(seatButton, container, letter, currentRow, currentColumn){
   });
 }
 
+let rowOffset = 0;
+
 function createSeats(container, letter, rows, seatsPerRow) {
   for (let row = 1; row <= rows; row++) {
+    const theatreRow = rowOffset + row;
     for (let seat = 1; seat <= seatsPerRow; seat++) {
       const seatButton = document.createElement("button");
       seatButton.classList.add("seat");
       seatButton.textContent = letter;
 
-      appendRow(seatButton, row);
+      appendRow(seatButton, theatreRow); //new
       appendSeat(seatButton, seat);
-      appendSelect(seatButton, container, letter, row, seat);   // new
+      appendSelect(seatButton, container, letter, theatreRow, seat);
 
       container.appendChild(seatButton);
     }
 
     container.appendChild(document.createElement("br"));
   }
+  rowOffset += rows;
 }
 
 //SEAT DETAILS
@@ -72,8 +76,8 @@ const total = document.getElementById("total");
 const addBtn = document.getElementById("add-btn");
 
 addBtn.addEventListener('click', function(){
-  if (!selected) return;                                  // nothing inspected yet
-  if (cart.some(item => item.id === selected.id)) return; // already in cart
+  if (!selected) return;                              
+  if (cart.some(item => item.id === selected.id)) return;
 
   cart.push(selected);
   markSeat(selected.id, true);
