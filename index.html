@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="seatmap.css" />
   </head>
 
-  <body>
+  <body> 
     <header>
       <h1>Opera House Hall</h1>
       <h2>Carmen - G. Bizet</h2>
@@ -58,8 +58,6 @@
         </div>
       </div>
 
-
-
       <div id="right-side">
 
         <div id='details'>
@@ -77,8 +75,18 @@
           <h4>Total: <span id="total">$0</span></h4>
           <button>Purchase</button>
         </div>
-
       </div>
+
+      <div id="left-side">
+        <div id="states">
+          <h3>Seat States</h3>
+          <p id="available" style="background: var(--available);">Available</p>
+          <p id="inspected" style='background:red;'>Currently Inspected</p>
+          <p id="in-cart" style='background: darkblue';>In Cart</p>
+          <p id="unavailable" style="background: darkgray;">Unavailable</p>
+        </div>
+      </div>
+
     </div>
     
   <script src="script.js"></script>

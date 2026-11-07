@@ -3,6 +3,8 @@
   --vip:rgb(55, 55, 160);
   --standard:rgb(175, 200, 220);
   --balcony:rgb(35, 150, 80);
+
+  --available:lightblue;
 }
 
 body{
@@ -14,10 +16,21 @@ body{
   display: flex;
   justify-content: center;
   gap: 30px;
+  align-items: flex-start;
 }
 
-#right-side {
+#right-side, #left-side {
   width: 200px;
+}
+
+#left-side {
+  order: -1;
+}
+
+#states p{
+  padding: 10px;
+  border-style: solid;
+  border-radius: 10px;
 }
 
 #categories{
@@ -42,7 +55,7 @@ body{
 #standard-cat{background: var(--standard);}
 #balcony-cat{background: var(--balcony);}
 
-#details, #cart{
+#details, #cart, #left-side{
   margin: 10px;
   padding: 5px;
   border-style: solid;

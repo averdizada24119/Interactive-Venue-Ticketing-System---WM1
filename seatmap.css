@@ -22,11 +22,6 @@ font-size: 24px;
   gap: 20px;
 }
 
-#premium-seat .seat{ background: var(--premium); }
-#vip-seat .seat{ background: var(--vip); }
-#standard-seat .seat{background: var(--standard);}
-#balcony-seat .seat{background: var(--balcony);}
-
 #seat-map .seat.in-cart {
   background: rgb(150, 50, 50);
 }
