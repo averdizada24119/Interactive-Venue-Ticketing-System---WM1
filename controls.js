@@ -1,7 +1,7 @@
 //VIEW CONTROLS
 const map = document.getElementById("map");
 
-let scale = 0.1;
+let scale = 1;
 let moveX = 0;
 let moveY = 0;
 

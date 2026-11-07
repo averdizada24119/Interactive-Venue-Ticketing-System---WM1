@@ -1,0 +1,43 @@
+#stage{
+margin: 30px; 
+padding: 20px;
+justify-self: center;
+text-align: center; 
+background-color: gray; 
+width: 80%; 
+font-size: 24px;
+}
+
+.seat {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: rgb(200, 200, 200);
+}
+
+.seats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#premium-seat .seat{ background: var(--premium); }
+#vip-seat .seat{ background: var(--vip); }
+#standard-seat .seat{background: var(--standard);}
+#balcony-seat .seat{background: var(--balcony);}
+
+#seat-map .seat.in-cart {
+  background: rgb(150, 50, 50);
+}
+
+#viewport {
+  overflow: hidden;
+  padding: 5px;
+  border: 2px solid rgb(0, 50, 150);
+}
+
+#map {
+  transform-origin: center top;
+  transition: transform 0.2s;
+}
