@@ -4,7 +4,10 @@
   --standard:rgb(175, 200, 220);
   --balcony:rgb(35, 150, 80);
 
-  --available:lightblue;
+  --available: lightgray;
+  --inspected: lightblue;
+  --incart: darkblue;
+  --unavailable:darkred;
 }
 
 body{

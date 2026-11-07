@@ -30,6 +30,11 @@ function appendSelect(seatButton, container, letter, currentRow, currentColumn){
   seatButton.dataset.id = id;
 
   seatButton.addEventListener('click', function(){
+
+    const prev = document.querySelector(".seat.inspected");
+    if (prev) prev.classList.remove("inspected");
+    seatButton.classList.add("inspected");
+
     selected = {
       id: id,
       category: container.dataset.category,
@@ -61,6 +66,59 @@ function createSeats(container, letter, rows, seatsPerRow) {
   }
   rowOffset += rows;
 }
+
+//SEAT EVENTS
+let unavailable;
+
+function saveUnavailable() {
+  try { localStorage.setItem("unavailable", JSON.stringify(unavailable)); } catch (e) {}
+}
+
+function setUnavailable(id) {
+  const btn = document.querySelector(`[data-id="${id}"]`);
+  if (!btn) return;
+  btn.disabled = true;
+  btn.classList.remove("in-cart", "inspected");
+  btn.classList.add("unavailable");
+}
+
+function pickRandomUnavailable(fraction) {
+  const ids = [];
+  document.querySelectorAll(".seat").forEach(function (btn) {
+    if (Math.random() < fraction) ids.push(btn.dataset.id);
+  });
+  return ids;
+}
+
+try { unavailable = JSON.parse(localStorage.getItem("unavailable")); } catch (e) { unavailable = null; }
+
+if (!Array.isArray(unavailable)) {          // first visit: pick randomly, then keep
+  unavailable = pickRandomUnavailable(0.15);  // about 15% of seats
+  saveUnavailable();
+}
+
+unavailable.forEach(setUnavailable);
+
+const purchaseBtn = document.getElementById("purchase-btn");
+
+purchaseBtn.addEventListener("click", function () {
+  if (cart.length === 0) return;
+
+  cart.forEach(function (item) {
+    unavailable.push(item.id);
+    setUnavailable(item.id);
+  });
+  saveUnavailable();
+
+  cart = [];
+  selected = null;
+  category.textContent = "Category: ";
+  price.textContent = "Price: ";
+  row.textContent = "Row: ";
+  column.textContent = "Seat: ";
+
+  renderCart();
+});
 
 //SEAT DETAILS
 const category = document.getElementById("category")
@@ -142,3 +200,13 @@ const seatB = document.getElementById("balcony-seat");
 appendCategory(seatB, 'Balcony')
 appendPrice(seatB, 35)
 createSeats(seatB, 'B', 4, 18);
+
+//UNAVAILABLE SEATS
+const defaultUnavailable = ["P-1-3", "P-1-4", "V-2-7", "V-3-8", "V-4-12", "S-6-5", "S-8-14", "S-10-3", "B-13-9", "B-15-2"];
+
+defaultUnavailable.forEach(function (id) {
+  const btn = document.querySelector(`[data-id="${id}"]`);
+  if (!btn) return;
+  btn.disabled = true;
+  btn.classList.add("unavailable");
+});

@@ -12,18 +12,18 @@ font-size: 24px;
     width: 30px;
     height: 30px;
     border-radius: 5px;
-    background: rgb(200, 200, 200);
+    background: var(--available);
 }
+
+#seat-map .seat.inspected   { background: var(--inspected); }
+#seat-map .seat.in-cart     { background: var(--incart); }
+#seat-map .seat.unavailable { background: var(--unavailable); cursor: not-allowed; }
 
 .seats {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 20px;
-}
-
-#seat-map .seat.in-cart {
-  background: rgb(150, 50, 50);
 }
 
 #viewport {
