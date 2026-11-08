@@ -3,21 +3,27 @@ margin: 30px;
 padding: 20px;
 justify-self: center;
 text-align: center; 
-background-color: gray; 
+background: linear-gradient(180deg, #3B3550, #2A2638);
+color: #D8D3E6;
+border: 1px solid #4A4460;
+border-radius: 150px 150px 20px 20px; 
 width: 80%; 
 font-size: 24px;
 }
 
 .seat {
-    width: 30px;
-    height: 30px;
-    border-radius: 5px;
-    background: var(--available);
+  margin:2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  background: var(--available);
+  border: none;
+  font-size: 12px;
 }
 
 #seat-map .seat.inspected   { background: var(--inspected); }
 #seat-map .seat.in-cart     { background: var(--incart); }
-#seat-map .seat.unavailable { background: var(--unavailable); cursor: not-allowed; }
+#seat-map .seat.unavailable { background: var(--unavailable); cursor: not-allowed; color: transparent;}
 
 .seats {
   display: flex;
@@ -29,7 +35,9 @@ font-size: 24px;
 #viewport {
   overflow: hidden;
   padding: 5px;
-  border: 2px solid rgb(0, 50, 150);
+  border: var(--border);
+  border-radius: 5px;
+  background: var(--panel);
 }
 
 #map {

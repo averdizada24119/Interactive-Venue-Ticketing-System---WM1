@@ -1,18 +1,31 @@
 :root {
-  --premium:rgb(255, 215, 100);
-  --vip:rgb(55, 55, 160);
-  --standard:rgb(175, 200, 220);
-  --balcony:rgb(35, 150, 80);
+  --category: #2E2A3B;
 
-  --available: lightgray;
-  --inspected: lightblue;
-  --incart: darkblue;
-  --unavailable:darkred;
+  --available: #7F9DF5;
+  --inspected: #E3BC55;
+  --incart: #D8D3E6;
+  --unavailable: #2B2835;
+
+  --border: solid #2E2A3B 2px;
+  --borderrad: 10px;
+
+  --page: #14121A;
+  --ink: #F2EEE6;
+  --panel: #1D1A26;
 }
 
 body{
   margin: 20px;
-  color: rgb(0, 50, 150);
+  color: var(--ink);
+  background: var(--page);
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h3 { color: #C9A961; }
+h2, h4 { color: #B7B2C6; } 
+
+header{
+  font-family: Georgia, serif;
 }
 
 #main {
@@ -30,45 +43,89 @@ body{
   order: -1;
 }
 
+#seat-map {
+  align-self: stretch;
+}
+
+#viewport, #left-side{
+  position: sticky;
+  top: 10px;
+}
+
 #states p{
   padding: 10px;
-  border-style: solid;
   border-radius: 10px;
+  color: #14121A;
+}
+
+#states #unavailable {
+    color: #F2EEE6;
 }
 
 #categories{
+  align-items: center; 
   display: flex;
   justify-content: left;
-  padding: 15px;
+  padding: 50px;
   padding-bottom: 0px;
   padding-top: 0px;
-  gap: 20px;
-  border-style:solid;
-  border-radius: 50px;
+  gap: 15px;
+  border: var(--border);
+  border-radius: var(--borderrad);
+  background:var(--panel);
 }
 
 #categories p{
+  margin: 5px;
   padding: 10px;
-  border-style: solid;
   border-radius: 10px;
+  background: var(--category);
 }
-
-#premium-cat{ background: var(--premium); }
-#vip-cat{ background: var(--vip); }
-#standard-cat{background: var(--standard);}
-#balcony-cat{background: var(--balcony);}
 
 #details, #cart, #left-side{
   margin: 10px;
   padding: 5px;
-  border-style: solid;
-  border-radius: 10px;
+  border: var(--border);
+  border-radius: var(--borderrad);
+  background:var(--panel);
 }
 
 .cart-item { 
   display: flex;
   flex-direction: column;
-  border: 1px solid #999;  
+  border: 1px solid #2E2A3B;
   margin-top: 10px;
-  padding: 5px; 
+  padding: 15px; 
+  border-radius: 12px;
+  background: var(--category);
+}
+
+button{
+  background: #E3BC55;
+  color: #14121A;
+  border-radius: 5px;
+  border: var(--border);
+}
+
+.cart-item button {
+  margin-top: 10px;
+  background: #2B2835;
+  color: var(--ink); 
+  border-radius: 5px;
+  border: 1px solid #4A4460; 
+}
+
+#controls {
+  margin: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#controls button {
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  background: #252131;
+  color: #F2EEE6;
 }
