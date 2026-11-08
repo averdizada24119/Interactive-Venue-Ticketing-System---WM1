@@ -32,6 +32,8 @@ font-size: 24px;
   gap: 20px;
 }
 
+.seats > div { white-space: nowrap; }
+
 #viewport {
   overflow: hidden;
   padding: 5px;

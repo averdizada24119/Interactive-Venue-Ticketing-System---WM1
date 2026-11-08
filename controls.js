@@ -5,6 +5,14 @@ let scale = 1;
 let moveX = 0;
 let moveY = 0;
 
+const maxMove = 300;
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+moveY = clamp(moveY - 40, -maxMove, maxMove);
+
 function updateView() {
   map.style.transform = `translate(${moveX}px, ${moveY}px) scale(${scale})`;
 }
@@ -20,22 +28,22 @@ document.getElementById("zoom-out").addEventListener("click", function () {
 });
 
 document.getElementById("move-up").addEventListener("click", function () {
-  moveY += 40;
+  moveY = clamp(moveY + 40, -maxMove, maxMove);
   updateView();
 });
 
 document.getElementById("move-down").addEventListener("click", function () {
-  moveY -= 40;
+  moveY = clamp(moveY - 40, -maxMove, maxMove);
   updateView();
 });
 
 document.getElementById("move-left").addEventListener("click", function () {
-  moveX += 40;
+  moveX = clamp(moveX + 40, -maxMove, maxMove);
   updateView();
 });
 
 document.getElementById("move-right").addEventListener("click", function () {
-  moveX -= 40;
+  moveX = clamp(moveX - 40, -maxMove, maxMove);
   updateView();
 });
 
