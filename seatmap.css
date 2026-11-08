@@ -46,3 +46,47 @@ font-size: 24px;
   transform-origin: center top;
   transition: transform 0.2s;
 }
+
+#viewport {
+  cursor: grab;
+  overflow: hidden;
+}
+
+#viewport:active {
+  cursor: grabbing;
+}
+
+/*BONUS - NAVIGATION PAD*/
+
+#viewport {
+    position: relative;
+}
+
+#navigation-pad {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    z-index: 10;
+}
+
+.nav-middle {
+    display: flex;
+    gap: 3px;
+}
+
+.nav-zoom {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+}
+
+#navigation-pad button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+}

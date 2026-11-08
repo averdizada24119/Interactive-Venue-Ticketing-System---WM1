@@ -1,7 +1,4 @@
 //FUNCTIONS
-/*function defaultScale() { return window.innerWidth < 700 ? 0.5 : 1; }
-let scale = defaultScale();
-updateView();*/
 
 function appendCategory(seat, cat){
   seat.dataset.category = cat;
